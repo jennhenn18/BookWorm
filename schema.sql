@@ -3,3 +3,5 @@ DROP DATABASE IF EXISTS bookworm;
 
 -- create database
 CREATE DATABASE bookworm;
+
+USE bookworm;

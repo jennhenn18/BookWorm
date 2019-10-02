@@ -55,5 +55,5 @@ module.exports = function(sequelize, DataTypes) {
         });
     };
 
-    return Club;
+    console.table(Club);
 };
