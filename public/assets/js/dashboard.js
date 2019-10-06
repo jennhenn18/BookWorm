@@ -61,7 +61,7 @@ $(function() {
 
         // Show add member modal
         $('#openModal').on('click', function(){
-            $('.modal').show();
+            $('#memberModal').show();
         });
 
         // Close modal
@@ -84,7 +84,7 @@ $(function() {
                 type: 'POST',
                 data: newMember
             }).then(function(){
-                $('.modal').hide();
+                $('#memberModal').hide();
                 location.reload();
             })
         })
@@ -110,6 +110,23 @@ $(function() {
 
     // BOOKS
     // ======================================================================
+    // Show search book modal
+    $('#searchCurBook').on('click', function(){
+        $('#bookModal').show();
+    });
+
+    // Search Google Books API
+    $('#searchBook').on('click', function(){
+        var bookTitle = $('#bookTitle').val().trim();
+
+        // AJAX call to Google Books
+        $.ajax({
+            method: 'GET',
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+        }).then(function(result){
+            console.log(result)
+        })
+    })
 
 
 })

@@ -21,6 +21,9 @@
 </head>
 <body>
 
+<div class="container">
+
+  <div>
     <!-- MEMBERS CARD -->
     <div class="card" style="width: 18rem;">
             <div class="card-member">
@@ -32,7 +35,7 @@
           </div>
 
     <!-- ADD MEMBER MODAL -->
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal" tabindex="-1" role="dialog" id="memberModal">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -59,7 +62,9 @@
               </div>
             </div>
           </div>
+    </div>
 
+    <div>
     <!-- EVENT INPUT CARD -->
         <form>
             <div class="form-group">
@@ -70,16 +75,58 @@
                 <label for="time">Event time</label>
                 <input type="text" class="form-control" id="time" placeholder="Enter time">
             </div>
-            <button type="submit" class="btn btn-primary" id="eventSubmit">Submit</button>
+            <button type="submit" class="btn btn-primary" id="eventSubmit">Add Event</button>
         </form>
 
     <!-- EVENT DISPLAY FIELD -->
         <p id="displayLocation"></p>
         <p id="displayTime"></p>
+    </div> 
 
-
+    <div>
       <!-- BOOKS CARD  -->
-      
-  
+      <div id="currentbook">
+          <div class="card">
+              <div class="card-header">
+                Now Reading
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+              </div>
+              <button type="submit" class="btn btn-primary" id="searchCurBook">Search Books</button>
+          </div>
+      </div>
+
+
+      <!-- SEARCH BOOKS MODAL -->
+      <div class="modal" tabindex="-1" role="dialog" id="bookModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Search for a book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="bookTitle">Book Title</label>
+                          <input type="text" class="form-control" id="bookTitle" placeholder="Enter a book title">
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="searchBook">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+    </div>
+
+</div>
 </body>
 </html>
