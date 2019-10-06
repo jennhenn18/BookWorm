@@ -5,6 +5,10 @@ $(function() {
         
         // Display all members
         $(document).ready(function(){
+            // hide modal
+            $('.modal').hide();
+
+            // AJAX call to display member
             $.ajax('/api/members/', {
                 method: 'GET',
             }).then(function(dbMember){
@@ -55,13 +59,40 @@ $(function() {
             })
         })
 
+        // Show add member modal
+        $('#openModal').on('click', function(){
+            $('.modal').show();
+        });
+
+        // Close modal
+        $('.close').on('click', function(){
+            $('.modal').hide();
+        });
 
 
+        // Add a member
+        $('#addMember').on('click', function(){
+            var memberName = $('#memberNameForm').val().trim();
+            var memberEmail = $('#memberEmailForm').val().trim();
+
+            var newMember = {
+                name: memberName,
+                email: memberEmail
+            }
+     
+            $.ajax('/api/members/', {
+                type: 'POST',
+                data: newMember
+            }).then(function(){
+                $('.modal').hide();
+                location.reload();
+            })
+        })
     // =========================================================================================================
     
     
     // EVENT
-    // ========================================
+    // ====================================================================
 
         // Add event
         $('#eventSubmit').on('click', function(e){
@@ -76,4 +107,9 @@ $(function() {
             $('#displayTime').text(time);
 
         })
+
+    // BOOKS
+    // ======================================================================
+
+
 })

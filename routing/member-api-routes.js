@@ -14,16 +14,14 @@ module.exports = function(app) {
     // ===========================================================================
     // send the book club id and add it to the member table
     // reload page
-    // app.post('/api/members/:id, function(req,res) {
-        // db.Member.create({
-            // figure out what is sent in the request so you can capture the proper data here.
-            // name: req.body.name?
-        //}).then(function(dbMember) {
-            // console.log(dbMember)
-            // add member information to the page
-            // reload page
-        // })
-    // })
+    app.post('/api/members/', function(req,res) {
+        db.Member.create({
+            name: req.body.name,
+            email: req.body.email
+        }).then(function(dbMember) {
+            res.json(dbMember);
+        })
+    })
 
 
 
