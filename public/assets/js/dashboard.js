@@ -124,7 +124,21 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log(result)
+            // store data in object
+            var bookDetails = {
+                
+            }
+            
+            // pass result into book table through a PUT request
+            $.ajax({
+
+            })
+            console.log(result.items[0].volumeInfo.title)
+            console.log(result.items[0].volumeInfo.authors[0])
+            console.log(result.items[0].volumeInfo.previewLink)
+            console.log(result.items[0].volumeInfo.imageLinks.smallThumbnail)
+            console.log(result.items[0].volumeInfo.infoLink)
+        
         })
     })
 

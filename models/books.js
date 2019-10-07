@@ -1,6 +1,6 @@
-// create a table for the books
+// create a table for current book
 module.exports = function(sequelize, DataTypes) {
-    var Book = sequelize.define('Book', {
+    var Bcurrent = sequelize.define('Bcurrent', {
         // book id
         id: {
             type: DataTypes.INTEGER,
