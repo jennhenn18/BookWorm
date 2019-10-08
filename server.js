@@ -1,5 +1,8 @@
 // link dependencies
 var express = require('express');
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
 // setup express app
 var PORT = process.env.PORT || 8080;
@@ -15,8 +18,14 @@ app.use(express.json());
 // add static directory
 app.use(express.static('public'));
 
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // import routes
 // require('./routing/books-api-route')(app);
+require('./routing/api-routes')(app);
 require('./routing/member-api-routes')(app);
 require('./routing/html-routes')(app);
 

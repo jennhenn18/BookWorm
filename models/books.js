@@ -21,6 +21,8 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    console.table(Book);
-    return Book
+    console.table(Bcurrent);
+    return Bcurrent
 }
+
+
