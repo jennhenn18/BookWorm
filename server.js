@@ -29,9 +29,11 @@ require('./routing/api-routes')(app);
 require('./routing/member-api-routes')(app);
 require('./routing/html-routes')(app);
 
-// syinc our sequelize models and start the express app
+// sync our sequelize models and start the express app
 db.sequelize.sync({ force: false}).then(function() {
     app.listen(PORT, function() {
         console.log('App listening on PORT ' + PORT);
     });
+}).catch(function(error) {
+    console.log(error)
 });
