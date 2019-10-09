@@ -11,6 +11,14 @@ body {
     border-radius: 15px;
 }
 
+.whiteText {
+    color: #FEFFFF
+}
+
+.navyText {
+    color: #17252A;
+}
+
 #introText {
     float: left;
     width: 40%;
@@ -26,4 +34,32 @@ body {
     padding: 5% 3% 1% 3%;
     background-color: #17252A;
     border-radius: 0px 15px 15px 0px;
+}
+
+#signUpScreen {
+    background: #17252A;
+    margin: 20% 15% 20% 10%;
+    width: 80%;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+}
+
+#signUpText {
+    float: left;
+    width: 40%;
+    height: 100%;
+    padding: 5% 3% 1% 3%;
+    text-align: center;
+    color: #FEFFFF;
+}
+
+#signUpForm {
+    float: right;
+    width: 60%;
+    height: 100%;
+    padding: 5% 3% 1% 3%;
+    background-color: #FEFFFF;
+    border-radius: 0px 15px 15px 0px;
+    color: #17252A;
 }

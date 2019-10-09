@@ -10,23 +10,27 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
+
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
+    <div class="row" id="signUpScreen">
+      <!-- Instructions text -->
+      <div class="col-6" id="signUpText">
+          <h2 class="whiteText">Hey, what's up hello!</h2>
+          <p class="whiteText">We are excited to have you!</p>
+          <p class="whiteText">to get started wit your account complete the form on the right.</p>
+          <p class="whiteText">some more dumb text</p>
+      </div>
+
+      <!-- Signup form -->
+      <div class="col-6" id="signUpForm">
+        <h2 class="navyText">Let's do this...</h2>
         <form class="signup">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1" class="navyText">Enter your email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1" class="navyText">Enter a password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
@@ -36,7 +40,7 @@
           <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p class="navyText">Or log in <a href="/">here.</a></p>
       </div>
     </div>
   </div>
