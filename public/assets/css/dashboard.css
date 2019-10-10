@@ -13,13 +13,21 @@ html, body {
     padding: 0px auto;
 }
 
+#dashboardHero {
+    background: #17252A;
+    color: #FEFFFF;
+    height: 150%;
+    padding-top: 3%;
+    padding-left: 1%;
+}
+
 #mainFeed {
+    margin-top: 7%;
     margin-left: 2%;
 }
 
 #rightCol {
     float: right;
-    margin-right: 2%;
-    margin-top: 5%;
-    border-left: grey solid 2px;
+    background: lightgrey;
+    margin-top: 7%;
 }

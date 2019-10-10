@@ -25,22 +25,28 @@
 
   <!-- Create a row div -->
   <div class="row">
+    <div class="col-12">
     <!-- =========================== MAIN FEED ================================== -->
-    <div class="col-8" id="mainFeed">
+    
           <!-- ======= BOOK CLUB HERO======== -->
-          <div>
-            <h1 style="margin-top: 3%">BOOK CLUB NAME</h1>
+          <div id="dashboardHero">
+            <h1>BOOK CLUB NAME</h1>
           </div>
+        </div>
+  </div>
 
+  <div class="row">
+      <div class="col-8" id="mainFeed">
           <!-- ======= CURRENT BOOK ========= -->
         <div>
           <!-- BOOKS CARD  -->
           <div id="currentbook">
               <div class="card">
                   <div class="card-header">
-                    Now Reading
-                    <button type="submit" class="btn btn-primary" id="searchBook" style="float:right">Search Books</button>
+                    <h3>Now Reading</h3>
+                    <button type="submit" class="btn btn-primary" id="searchBook"">Search Books</button>
                   </div>
+                  
                   <div class="card-body">
                     <img src='https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg' style="float:left; height:280px; width: 220px; margin-right: 2%;">
                     <h5 class="card-title">Book Title</h5>
