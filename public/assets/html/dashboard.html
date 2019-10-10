@@ -12,7 +12,7 @@
     <!-- Add CSS -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="/assets/js/dashboard.js" text="text/javascript"></script>
@@ -21,89 +21,92 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="wrapper">
 
-  <div>
-    <!-- MEMBERS CARD -->
-    <div class="card" style="width: 18rem;">
-            <div class="card-member">
-              <h5 class="card-member">Members</h5>
-              <ul id="member"></ul>
-            </div>
-            <!-- ADD MEMBER BUTTON -->
-            <button type="button" class="btn btn-secondary btn-lg btn-block" id="openModal">Add member</button>
+  <!-- Create a row div -->
+  <div class="row">
+    <!-- =========================== MAIN FEED ================================== -->
+    <div class="col-8" id="mainFeed">
+          <!-- ======= BOOK CLUB HERO======== -->
+          <div>
+            <h1 style="margin-top: 3%">BOOK CLUB NAME</h1>
           </div>
 
-    <!-- ADD MEMBER MODAL -->
-    <div class="modal" tabindex="-1" role="dialog" id="memberModal">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Add a member</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+          <!-- ======= CURRENT BOOK ========= -->
+        <div>
+          <!-- BOOKS CARD  -->
+          <div id="currentbook">
+              <div class="card">
+                  <div class="card-header">
+                    Now Reading
+                    <button type="submit" class="btn btn-primary" id="searchBook" style="float:right">Search Books</button>
+                  </div>
+                  <div class="card-body">
+                    <img src='https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg' style="float:left; height:280px; width: 220px; margin-right: 2%;">
+                    <h5 class="card-title">Book Title</h5>
+                    <p>Author name</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatem perferendis pariatur alias, tempora libero sunt? Cumque enim magni mollitia voluptates eius sint voluptas quo ipsum aliquid itaque. Amet, harum.</p>
+                    <a href="">Learn more</a>
+                  </div>
+                  
+              </div>
+          </div>
+
+
+          <!-- SEARCH BOOKS MODAL -->
+          <div class="modal" tabindex="-1" role="dialog" id="bookModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Search Books:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="bookTitle">Book Title</label>
+                              <input type="text" class="form-control" id="bookTitle" placeholder="Enter a book title">
+                          </div>
+                      </form>
+                  </div>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Enter name</label>
-                            <input type="text" class="form-control" id="memberNameForm" placeholder="Enter their full name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="memberEmailForm" placeholder="Enter email">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" id="addMember">Add</button>
+                <div class="card-body">
+                  <h5 class="card-title">Book details</h5>
+                  <p class="card-text" id='resBookTitle'></p>
+                  <p class="card-text" id='resBookAuthor'></p>
+                  <img id='resBookImage'>
+                  <a href="" id='resBookLink'>Learn more</a>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="searchBook">Search</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-    </div>
-
-    <div>
-    <!-- EVENT INPUT CARD -->
-        <form>
-            <div class="form-group">
-                <label for="location">Event location</label>
-                <input type="text" class="form-control" id="location" placeholder="Enter location">
-            </div>
-            <div class="form-group">
-                <label for="time">Event time</label>
-                <input type="text" class="form-control" id="time" placeholder="Enter time">
-            </div>
-            <button type="submit" class="btn btn-primary" id="eventSubmit">Add Event</button>
-        </form>
-
-    <!-- EVENT DISPLAY FIELD -->
-        <p id="displayLocation"></p>
-        <p id="displayTime"></p>
-    </div> 
-
-    <div>
-      <!-- BOOKS CARD  -->
-      <div id="currentbook">
-          <div class="card">
-              <div class="card-header">
-                Now Reading
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-              </div>
-              <button type="submit" class="btn btn-primary" id="searchCurBook">Search Books</button>
-          </div>
       </div>
 
+    </div>
 
-      <!-- SEARCH BOOKS MODAL -->
-      <div class="modal" tabindex="-1" role="dialog" id="bookModal">
+    <!-- ==================================== END MAIN FEED =================================== -->
+    
+      <div class="col-3" id="rightCol"> 
+        <!-- MEMBERS CARD -->
+        <div class="card" style="width: 18rem;">
+          <div class="card-member">
+            <h5 class="card-member">Members</h5>
+            <ul id="member"></ul>
+          </div>
+          <!-- ADD MEMBER BUTTON -->
+          <button type="button" class="btn btn-secondary btn-lg btn-block" id="openModal">Add member</button>
+        </div>
+
+      <!-- ADD MEMBER MODAL -->
+      <div class="modal" tabindex="-1" role="dialog" id="memberModal">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Search Books:</h5>
+                <h5 class="modal-title">Add a member</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -111,29 +114,44 @@
               <div class="modal-body">
                   <form>
                       <div class="form-group">
-                          <label for="bookTitle">Book Title</label>
-                          <input type="text" class="form-control" id="bookTitle" placeholder="Enter a book title">
+                          <label for="name">Enter name</label>
+                          <input type="text" class="form-control" id="memberNameForm" placeholder="Enter their full name">
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="email" class="form-control" id="memberEmailForm" placeholder="Enter email">
                       </div>
                   </form>
               </div>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Book details</h5>
-              <p class="card-text" id='resBookTitle'></p>
-              <p class="card-text" id='resBookAuthor'></p>
-              <img id='resBookImage'>
-              <a href="" id='resBookLink'>Learn more</a>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="searchBook">Search</button>
+                <button type="button" class="btn btn-primary" id="addMember">Add</button>
               </div>
             </div>
           </div>
         </div>
+    
+
+    <div>
+    <!-- EVENT INPUT CARD -->
+      <form>
+          <div class="form-group">
+              <label for="location">Event location</label>
+              <input type="text" class="form-control" id="location" placeholder="Enter location">
+          </div>
+          <div class="form-group">
+              <label for="time">Event time</label>
+              <input type="text" class="form-control" id="time" placeholder="Enter time">
+          </div>
+          <button type="submit" class="btn btn-primary" id="eventSubmit">Add Event</button>
+      </form>
+
+    <!-- EVENT DISPLAY FIELD -->
+      <p id="displayLocation"></p>
+      <p id="displayTime"></p>
+    </div> 
   </div>
 
-
-    </div>
-
+  </div>
 </div>
 </body>
 </html>

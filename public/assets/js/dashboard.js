@@ -13,7 +13,7 @@ $(function() {
                 method: 'GET',
             }).then(function(dbMember){
                 // loop through each member and do the following...
-                for (let i = 0; i < dbMember.length; i++) {
+                for (let i=0; i < dbMember.length; i++) {
                     // store the member name and ID
                     const memberName = dbMember[i].name;
                     const memberId = dbMember[i].id;
@@ -124,15 +124,6 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            // store data in object
-            var bookDetails = {
-                
-            }
-            
-            // pass result into book table through a PUT request
-            $.ajax({
-
-            })
             console.log(result.items[0].volumeInfo.title)
             console.log(result.items[0].volumeInfo.authors[0])
             console.log(result.items[0].volumeInfo.previewLink)

@@ -1,0 +1,25 @@
+html, body {
+    background: #3AAFA9;
+    height:  100%;
+    margin:  0px auto;
+    padding: 0px auto;
+}
+
+#wrapper {
+    background: #FEFFFF;
+    height: auto;     
+    min-height: 100%;
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+#mainFeed {
+    margin-left: 2%;
+}
+
+#rightCol {
+    float: right;
+    margin-right: 2%;
+    margin-top: 5%;
+    border-left: grey solid 2px;
+}
