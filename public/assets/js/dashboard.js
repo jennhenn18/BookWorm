@@ -132,7 +132,28 @@ $(function() {
             var infoLink = result.items[0].volumeInfo.infoLink;
 
             // update html elements in modal
-        
+
+            $('#resBookTitleHeader').html('Book Title:');
+            $('#resBookTitle').html(bookTitle);
+
+            $('#resBookauthorHeader').html('Author:');
+            $('#resBookAuthor').html(author);
+
+            $('#resBookBioHeader').html('Storyline:');
+            $('#resBookBio').html(bookBio);
+
+
+            $('#resBookImage').attr('src', bookThumbnail);
+
+            $('#resBookLink').html('Learn more').attr('href', infoLink);
+
+
+
+            // If "add to current book" button is clicked run function to add information to current book card
+
+            // If "add to current book" button is clicked run function to add information to current book card
+
+
         })
     })
 

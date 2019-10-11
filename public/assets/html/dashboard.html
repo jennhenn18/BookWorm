@@ -56,11 +56,17 @@
                           </div>
                           
                           <div class="card-body">
-                            <img src='https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg' style="float:left; height:280px; width: 220px; margin-right: 2%;">
-                            <h5 class="card-title">Book Title</h5>
-                            <p>Author name</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatem perferendis pariatur alias, tempora libero sunt? Cumque enim magni mollitia voluptates eius sint voluptas quo ipsum aliquid itaque. Amet, harum.</p>
-                            <a href="">Learn more</a>
+
+                            <img src="" style="float:left; height:280px; width: 220px; margin-right: 2%;">
+
+                            <h5 class="card-title" id="currentBookTitle"></h5>
+
+                            <p id="currentBookAuthor"></p>
+
+                            <p id="currentBookBio"></p>
+
+                            <a href="" id="currentBookLink"></a>
+                            
                           </div>   
                       </div>
                   </div>
@@ -167,11 +173,21 @@
           </div>
         
         <div class="card-body" id="searchBookResults">
-          <h5 class="card-title">Results</h5>
+          <h3 class="card-title">Results</h3>
+
+          <h5 id="resBookTitleHeader"></h5>
           <p class="card-text" id='resBookTitle'></p>
+
+          <h5 id="resBookauthorHeader"></h5>
           <p class="card-text" id='resBookAuthor'></p>
+
+          <h5 id="resBookBioHeader"></h5>
+          <p class="card-text" id='resBookBio'></p>
+
           <img id='resBookImage'>
+
           <a href="" id='resBookLink'></a>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="addToCurrentBook">Make Current Read</button>
             <button type="button" class="btn btn-primary" id="addToNextBook">Make Next Read</button>
