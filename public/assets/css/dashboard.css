@@ -22,12 +22,75 @@ html, body {
 }
 
 #mainFeed {
+    height: auto;     
+    min-height: 100%;
     margin-top: 7%;
     margin-left: 2%;
+    border: black solid 2px;
+    overflow: auto;
 }
 
 #rightCol {
     float: right;
-    background: lightgrey;
     margin-top: 7%;
 }
+
+#bookHeader {
+    background-color: #17252A;
+}
+
+#bookHeaderTitle {
+    display: inline-block;
+    color: #FEFFFF;
+}
+
+#searchBookButton {
+    float: right;
+}
+
+#currentBookCard {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    clear: right;
+}
+
+#membersCardHeader {
+    background-color: #17252A;
+}
+
+#membersCardTitle {
+    display: inline-block;
+    color: #FEFFFF;
+}
+
+#addMemberButton {
+    float: right;
+}
+
+#meetupCard {
+    margin-top: 5%;
+}
+
+#meetupCardHeader {
+    background-color: #17252A;
+}
+
+#meetupCardTitle {
+    display: inline-block;
+    color: #FEFFFF;
+}
+
+#createMeetupButton {
+    float: right;
+}
+
+/* ======================= MODALS ====================== */
+
+#bookTitle {
+    display: inline-block;
+}
+
+#searchBook {
+    float: right;
+}
+

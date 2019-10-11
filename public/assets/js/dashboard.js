@@ -111,7 +111,7 @@ $(function() {
     // BOOKS
     // ======================================================================
     // Show search book modal
-    $('#searchCurBook').on('click', function(){
+    $('#searchBookButton').on('click', function(){
         $('#bookModal').show();
     });
 
@@ -124,11 +124,14 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log(result.items[0].volumeInfo.title)
-            console.log(result.items[0].volumeInfo.authors[0])
-            console.log(result.items[0].volumeInfo.previewLink)
-            console.log(result.items[0].volumeInfo.imageLinks.smallThumbnail)
-            console.log(result.items[0].volumeInfo.infoLink)
+            // store results in variables
+            var bookTitle = result.items[0].volumeInfo.title;
+            var author = result.items[0].volumeInfo.authors[0];
+            var bookBio = result.items[0].searchInfo.textSnippet;
+            var bookThumbnail = result.items[0].volumeInfo.imageLinks.smallThumbnail;
+            var infoLink = result.items[0].volumeInfo.infoLink;
+
+            // update html elements in modal
         
         })
     })
