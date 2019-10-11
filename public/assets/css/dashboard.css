@@ -54,6 +54,13 @@ html, body {
     clear: right;
 }
 
+.bookThumbnail {
+    float:left; 
+    height:280px;
+    width: 220px; 
+    margin-right: 2%;
+}
+
 #membersCardHeader {
     background-color: #17252A;
 }

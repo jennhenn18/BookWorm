@@ -1,6 +1,6 @@
 // create a table for current book
 module.exports = function(sequelize, DataTypes) {
-    var Bcurrent = sequelize.define('Bcurrent', {
+    var BookClub = sequelize.define('BookClub', {
         // book id
         id: {
             type: DataTypes.INTEGER,
@@ -8,21 +8,17 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         // book name
-        name: {
-            type: DataTypes.STRING
+        CurrentBookID: {
+            type: DataTypes.INTEGER
         },
         // book author
-        author: {
-            type: DataTypes.STRING
-        },
-        // book bio
-        bio: {
-            type: DataTypes.STRING
+        NextBookID: {
+            type: DataTypes.INTEER
         }
     });
 
-    console.table(Bcurrent);
-    return Bcurrent
+    console.table(BookClub);
+    return BookClub
 }
 
 

@@ -124,34 +124,71 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            // store results in variables
-            var bookTitle = result.items[0].volumeInfo.title;
-            var author = result.items[0].volumeInfo.authors[0];
-            var bookBio = result.items[0].searchInfo.textSnippet;
-            var bookThumbnail = result.items[0].volumeInfo.imageLinks.smallThumbnail;
-            var infoLink = result.items[0].volumeInfo.infoLink;
+            
+            // store result in object
+
+            var book = {
+                title: result.items[0].volumeInfo.title,
+                author: result.items[0].volumeInfo.authors[0],
+                bio: result.items[0].searchInfo.textSnippet,
+                thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
+                link: result.items[0].volumeInfo.infoLink
+            }
+  
 
             // update html elements in modal
 
             $('#resBookTitleHeader').html('Book Title:');
-            $('#resBookTitle').html(bookTitle);
+            $('#resBookTitle').html(book.title);
 
             $('#resBookauthorHeader').html('Author:');
-            $('#resBookAuthor').html(author);
+            $('#resBookAuthor').html(book.author);
 
             $('#resBookBioHeader').html('Storyline:');
-            $('#resBookBio').html(bookBio);
+            $('#resBookBio').html(book.bio);
+
+            $('#resBookImage').attr('src', book.thumbnail);
+
+            $('#resBookLink').html('Learn more').attr('href', book.link);
 
 
-            $('#resBookImage').attr('src', bookThumbnail);
-
-            $('#resBookLink').html('Learn more').attr('href', infoLink);
-
-
-
-            // If "add to current book" button is clicked run function to add information to current book card
 
             // If "add to current book" button is clicked run function to add information to current book card
+            $('#addToCurrentBook').on('click', function(e){
+                e.preventDefault;
+
+                console.log(book)
+               
+                $('#currentBokTitleHeader').html('Book Title:');
+                $('#currentBookTitle').html(book.title);
+
+                $('#currentBookAuthorHeader').html('Author:');
+                $('#currentBookAuthor').html(book.author);
+
+                $('#currentbookBioHeader').html('Storyline:');
+                $('#currentBookBio').html(book.bio);
+
+                $('#currentBookImage').attr('src', book.thumbnail);
+
+                $('#currentBookLink').html('Learn more').attr('href', book.link).addClass('bookThumbnail');
+
+
+                // clear form
+                $('#bookTitle').html('');
+
+                // close modal
+                $('#bookModal').hide();
+
+                // reload page
+                location.reload
+
+            });
+
+
+            // If "add to next book" button is clicked run function to add information to next book card
+            $('#addToNextBook').on('click', function(book){
+
+            });
 
 
         })
