@@ -5,7 +5,6 @@ module.exports = function(app) {
     //===========================================================================
     app.get('/api/members/', function(req, res){
         db.Member.findAll({}).then(function(dbMember){
-            console.log(dbMember)
             res.json(dbMember)
         });
     });

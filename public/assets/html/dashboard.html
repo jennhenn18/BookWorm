@@ -126,7 +126,7 @@
 
       
     
-        <!-- ========= MEETUP INPUT CARD ========= --> 
+        <!-- ========= EVENT INPUT CARD ========= --> 
             <div class="row">
               
                 <div class="col-12">
@@ -233,17 +233,33 @@
     </div>
 
     <!-- ADD EVENT MODAL -->
-    <form>
-        <div class="form-group">
-            <label for="location">Event location</label>
-            <input type="text" class="form-control" id="location" placeholder="Enter location">
+    <div class="modal" tabindex="-1" role="dialog" id="eventModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create an event</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter location">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="text" class="form-control" id="time" placeholder="Enter time">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="createEvent">Create Event</button>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="time">Event time</label>
-            <input type="text" class="form-control" id="time" placeholder="Enter time">
-        </div>
-        <button type="submit" class="btn btn-primary" id="eventSubmit">Add Event</button>
-    </form>
+      </div>
 
 </div>
 </body>
