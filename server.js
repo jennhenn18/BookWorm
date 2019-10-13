@@ -25,7 +25,7 @@ app.use(passport.session());
 
 // import routes
 require('./routing/current-books-api-route')(app);
-// require('./routing/next-books-api-route')(app);
+require('./routing/next-books-api-route')(app);
 require('./routing/events-api-route')(app);
 require('./routing/api-routes')(app);
 require('./routing/member-api-routes')(app);
