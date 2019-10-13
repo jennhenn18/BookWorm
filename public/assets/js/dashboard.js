@@ -1,7 +1,3 @@
-// import API key
-var googleAPIKey = require('../../../config/api-key');
-
-
 $(function() {
 
        
@@ -72,7 +68,7 @@ $(function() {
                 // GET request to Google Books
                 $.ajax({
                     method: 'GET',
-                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=' + googleAPIKey
+                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
             }).then(function(result){
                 
                 // store values in an object
@@ -238,7 +234,7 @@ $(function() {
         // AJAX call to Google Books
         $.ajax({
             method: 'GET',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=' + googleAPIKey
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw' 
         }).then(function(result){
             // console.log(result)
             
