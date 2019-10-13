@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         // next book
-        NextBookID: {
+        nextbookid: {
             type: DataTypes.INTEGER
         }
     });

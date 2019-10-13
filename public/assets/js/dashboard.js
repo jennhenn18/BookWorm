@@ -63,6 +63,8 @@ $(function() {
             $.ajax('/api/currentbooks/', {
                 method: 'GET'
             }).then(function(CurrentBook){
+                console.log(CurrentBook)
+                console.log(CurrentBook[0].currentbookid)
                 var isbn = CurrentBook[0].currentbookid
                 console.log('isbn variable' + isbn)
                 // GET request to Google Books
@@ -73,15 +75,15 @@ $(function() {
                 
                 // store values in an object
                 var currentBook = {
-                    title: result.items[0].volumeInfo.title,
-                    author: result.items[0].volumeInfo.authors[0],
-                    bio: result.items[0].searchInfo.textSnippet,
-                    thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
-                    link: result.items[0].volumeInfo.infoLink
+                    title: result.items.volumeInfo.title,
+                    author: result.items.volumeInfo.authors[0],
+                    bio: result.items.searchInfo.textSnippet,
+                    thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
+                    link: result.items.volumeInfo.infoLink
                 }
 
                 // update HTML
-                $('#currentBokTitleHeader').html('Book Title:');
+                $('#currentBookTitleHeader').html('Book Title:');
                 $('#currentBookTitle').html(currentBook.title);
     
                 $('#currentBookAuthorHeader').html('Author:');
@@ -96,38 +98,45 @@ $(function() {
 
             });
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+             // AJAX call to display next book
+
+             $.ajax('/api/nextbooks/', {
+                method: 'GET'
+            }).then(function(NextBook){
+                var isbn = NextBook[0].currentbookid
+                // GET request to Google Books
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            }).then(function(result){
+                
+                // store values in an object
+                var NextBook = {
+                    title: result.items.volumeInfo.title,
+                    author: result.items.volumeInfo.authors[0],
+                    bio: result.items.searchInfo.textSnippet,
+                    thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
+                    link: result.items.volumeInfo.infoLink
+                }
+
+                // update HTML
+                $('#NextBookTitleHeader').html('Book Title:');
+                $('#NextBookTitle').html(NextBook.title);
+    
+                $('#NextBookAuthorHeader').html('Author:');
+                $('#NextBookAuthor').html(NextBook.author);
+    
+                $('#NextbookBioHeader').html('Storyline:');
+                $('#NextBookBio').html(NextBook.bio);
+    
+                $('#NextBookImage').attr('src', NextBook.thumbnail);
+    
+                $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
+
+                });
+
+            });
         });
     });
 
@@ -288,6 +297,21 @@ $(function() {
 
             // If "add to next book" button is clicked run function to add information to next book card
             $('#addToNextBook').on('click', function(book){
+                // send bookID to next book column in the books table
+                $.ajax('/api/nextbooks/', {
+                    method: 'POST',
+                    data: book
+                }).then(function(dbNextBook){
+                    // clear form
+                    $('#bookTitle').html('');
+
+                    // close modal
+                    $('#bookModal').hide();
+
+                    // reload page
+                    location.reload();
+                });
+            
 
             });
         });
