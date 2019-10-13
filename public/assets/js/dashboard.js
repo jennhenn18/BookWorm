@@ -130,7 +130,7 @@ $(function() {
         // ================================================================
 
                 // Show add member modal
-                $('#openModal').on('click', function(){
+                $('#addMemberButton').on('click', function(){
                     $('#memberModal').show();
                 });
                 
