@@ -1,4 +1,9 @@
+// import API key
+var googleAPIKey = require('../../../config/api-key');
+
+
 $(function() {
+
        
     // Create all get AJAXs call on document load
     // ====================================================================
@@ -58,6 +63,7 @@ $(function() {
     
 
             // AJAX call to display current book
+
             $.ajax('/api/currentbooks/', {
                 method: 'GET'
             }).then(function(CurrentBook){
@@ -66,7 +72,7 @@ $(function() {
                 // GET request to Google Books
                 $.ajax({
                     method: 'GET',
-                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=' + googleAPIKey
             }).then(function(result){
                 
                 // store values in an object
@@ -92,14 +98,8 @@ $(function() {
     
                 $('#currentBookLink').html('Learn more').attr('href', currentBook.link).addClass('bookThumbnail');
 
-
-
-
             });
-        
-        
-            // 
-        
+    
         
         
         
@@ -238,7 +238,7 @@ $(function() {
         // AJAX call to Google Books
         $.ajax({
             method: 'GET',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=' + googleAPIKey
         }).then(function(result){
             // console.log(result)
             
