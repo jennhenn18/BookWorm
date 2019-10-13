@@ -4,7 +4,12 @@ module.exports = function(app) {
 
 // get events from table
 app.get('/api/events', function(req, res){
-    db.Events.findAll({}).then(function(dbEvents){
+    db.Events.findAll({
+        order: [
+            ['id', 'DESC']
+        ],
+        limit: 1
+    }).then(function(dbEvents){
         res.json(dbEvents);
     })
 })

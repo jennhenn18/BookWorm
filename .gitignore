@@ -1,0 +1,10 @@
+# Do not track these folders
+node_modules/
+config/
+modules/
+routing/
+
+package-lock.json
+package.json
+schema.sql
+server.js

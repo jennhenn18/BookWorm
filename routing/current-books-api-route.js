@@ -10,9 +10,7 @@ app.get('/api/currentbooks/', function(req, res){
         ],
         limit: 1
     }).then(function(dbCurrentBook){
-        console.log(dbCurrentBook)
-
-        res.json(dbcurrentBook);
+        res.json(dbCurrentBook);
     });
 });
 
