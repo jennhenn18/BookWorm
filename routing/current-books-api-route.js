@@ -10,8 +10,9 @@ app.get('/api/currentbooks/', function(req, res){
         ],
         limit: 1
     }).then(function(dbCurrentBook){
-        console.log(dbCurrentBook[0].currentbookid)
-        res.json(dbCurrentBook[0].currentbookid);
+        console.log(dbCurrentBook)
+
+        res.json(dbcurrentBook);
     });
 });
 

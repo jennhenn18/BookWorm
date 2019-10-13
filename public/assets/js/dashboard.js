@@ -61,11 +61,13 @@ $(function() {
             // AJAX call to display current book
             $.ajax('/api/currentbooks/', {
                 method: 'GET'
-            }).then(function(dbCurrentBook){
+            }).then(function(CurrentBook){
                 // GET request to Google Books
                 $.ajax({
                     method: 'GET',
-                    url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + dbCurrentBook  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+                    url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + CurrentBook  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            }).then(function(result){
+                console.log(result)
             })
             
         
@@ -116,7 +118,8 @@ $(function() {
         
         
         
-        })
+        });
+    });
 
         // ========================================================================================
         
@@ -221,13 +224,14 @@ $(function() {
         // AJAX call to Google Books
         $.ajax({
             method: 'GET',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
+            console.log(result)
             
             // store result in object
 
             var book = {
-                id: result.items[0].id,
+                id: result.items[0].volumeInfo.industryIdentifiers[0].type,
                 title: result.items[0].volumeInfo.title,
                 author: result.items[0].volumeInfo.authors[0],
                 bio: result.items[0].searchInfo.textSnippet,
@@ -276,12 +280,7 @@ $(function() {
             $('#addToNextBook').on('click', function(book){
 
             });
-
-        
         });
+    });
 
-
-    })
-
-
-})
+});

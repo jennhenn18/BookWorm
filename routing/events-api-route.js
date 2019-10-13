@@ -17,7 +17,6 @@ app.post('/api/events/', function(req, res) {
         location: req.body.location,
         time: req.body.time
     }).then(function(dbEvents){
-        console.log(dbEvents)
         res.json(dbEvents)
     })
 

@@ -20,7 +20,6 @@ module.exports = function(app) {
     })
       .then(function() {
         res.redirect(307, "/dashboard");
-        console.log(res)
       })
       .catch(function(err) {
         res.status(401).json(err);
