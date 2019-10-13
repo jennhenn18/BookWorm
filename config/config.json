@@ -18,7 +18,7 @@
   "production": {
     "username": "d6m1ljjw9aoshtdj",
     "password": "mosvfihu7v452a1c",
-    "database": "	hyi2et9bj2y6xnlx",
+    "database": "hyi2et9bj2y6xnlx",
     "host": "gzp0u91edhmxszwf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql",
