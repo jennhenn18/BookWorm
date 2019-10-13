@@ -51,9 +51,10 @@ $(function() {
             $.ajax('/api/events', {
                 method: 'GET',
             }).then(function(dbEvents){
+                console.log(dbEvents)
 
-                $('#displayLocation').html(dbEvents[dbEvents.length-1].location);
-                $('#displayTime').html(dbEvents[dbEvents.length-1].time);
+                $('#displayLocation').html(dbEvents[0].location);
+                $('#displayTime').html(dbEvents[0].time);
  
             });
     
