@@ -43,7 +43,6 @@ $(function() {
                     // append member name and button to list item
                     $('#member').append(l,d);
                 }
-                console.log(member)
             })
 
             // AJAX call to display events
@@ -51,7 +50,6 @@ $(function() {
             $.ajax('/api/events', {
                 method: 'GET',
             }).then(function(dbEvents){
-                console.log(dbEvents)
 
                 $('#displayLocation').html(dbEvents[0].location);
                 $('#displayTime').html(dbEvents[0].time);
@@ -63,29 +61,44 @@ $(function() {
             $.ajax('/api/currentbooks/', {
                 method: 'GET'
             }).then(function(CurrentBook){
+                var isbn = CurrentBook[0].currentbookid
+                console.log('isbn variable' + isbn)
                 // GET request to Google Books
                 $.ajax({
                     method: 'GET',
-                    url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + CurrentBook  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+                    url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
             }).then(function(result){
-                console.log(result)
-            })
-            
+                
+                // store values in an object
+                var currentBook = {
+                    title: result.items[0].volumeInfo.title,
+                    author: result.items[0].volumeInfo.authors[0],
+                    bio: result.items[0].searchInfo.textSnippet,
+                    thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
+                    link: result.items[0].volumeInfo.infoLink
+                }
+
+                // update HTML
+                $('#currentBokTitleHeader').html('Book Title:');
+                $('#currentBookTitle').html(currentBook.title);
+    
+                $('#currentBookAuthorHeader').html('Author:');
+                $('#currentBookAuthor').html(currentBook.author);
+    
+                $('#currentbookBioHeader').html('Storyline:');
+                $('#currentBookBio').html(currentBook.bio);
+    
+                $('#currentBookImage').attr('src', currentBook.thumbnail);
+    
+                $('#currentBookLink').html('Learn more').attr('href', currentBook.link).addClass('bookThumbnail');
+
+
+
+
+            });
         
         
-        
-            // $('#currentBokTitleHeader').html('Book Title:');
-            // $('#currentBookTitle').html(book.title);
-
-            // $('#currentBookAuthorHeader').html('Author:');
-            // $('#currentBookAuthor').html(book.author);
-
-            // $('#currentbookBioHeader').html('Storyline:');
-            // $('#currentBookBio').html(book.bio);
-
-            // $('#currentBookImage').attr('src', book.thumbnail);
-
-            // $('#currentBookLink').html('Learn more').attr('href', book.link).addClass('bookThumbnail');
+            // 
         
         
         
@@ -227,12 +240,12 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log(result)
+            // console.log(result)
             
             // store result in object
 
             var book = {
-                id: result.items[0].volumeInfo.industryIdentifiers[0].type,
+                id: result.items[0].volumeInfo.industryIdentifiers[0].identifier,
                 title: result.items[0].volumeInfo.title,
                 author: result.items[0].volumeInfo.authors[0],
                 bio: result.items[0].searchInfo.textSnippet,
