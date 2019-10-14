@@ -72,14 +72,15 @@ $(function() {
                     method: 'GET',
                     url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
             }).then(function(result){
+                console.log(result)
                 
                 // store values in an object
                 var currentBook = {
-                    title: result.items.volumeInfo.title,
-                    author: result.items.volumeInfo.authors[0],
-                    bio: result.items.searchInfo.textSnippet,
-                    thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
-                    link: result.items.volumeInfo.infoLink
+                    title: result.items[0].volumeInfo.title,
+                    author: result.items[0].volumeInfo.authors[0],
+                    bio: result.items[0].searchInfo.textSnippet,
+                    thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
+                    link: result.items[0].volumeInfo.infoLink
                 }
 
                 // update HTML
