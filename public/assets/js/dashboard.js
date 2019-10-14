@@ -110,32 +110,32 @@ $(document).ready(function() {
                 $.ajax({
                     method: 'GET',
                     url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
-            }).then(function(result){
-                
-                // store values in an object
-                var NextBook = {
-                    title: result.items.volumeInfo.title,
-                    author: result.items.volumeInfo.authors[0],
-                    bio: result.items.searchInfo.textSnippet,
-                    thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
-                    link: result.items.volumeInfo.infoLink
-                }
+                }).then(function(result){
+                    
+                    // store values in an object
+                    var NextBook = {
+                        title: result.items.volumeInfo.title,
+                        author: result.items.volumeInfo.authors[0],
+                        bio: result.items.searchInfo.textSnippet,
+                        thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
+                        link: result.items.volumeInfo.infoLink
+                    }
 
-                // update HTML
-                $('#NextBookTitleHeader').html('Book Title:');
-                $('#NextBookTitle').html(NextBook.title);
-    
-                $('#NextBookAuthorHeader').html('Author:');
-                $('#NextBookAuthor').html(NextBook.author);
-    
-                $('#NextbookBioHeader').html('Storyline:');
-                $('#NextBookBio').html(NextBook.bio);
-    
-                $('#NextBookImage').attr('src', NextBook.thumbnail);
-    
-                $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
+                    // update HTML
+                    $('#NextBookTitleHeader').html('Book Title:');
+                    $('#NextBookTitle').html(NextBook.title);
+        
+                    $('#NextBookAuthorHeader').html('Author:');
+                    $('#NextBookAuthor').html(NextBook.author);
+        
+                    $('#NextbookBioHeader').html('Storyline:');
+                    $('#NextBookBio').html(NextBook.bio);
+        
+                    $('#NextBookImage').attr('src', NextBook.thumbnail);
+        
+                    $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
 
-                });
+                    });
 
             });
         });

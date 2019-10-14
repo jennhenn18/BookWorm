@@ -1,6 +1,6 @@
 // create a table for Next books
 module.exports = function(sequelize, DataTypes) {
-    var NextBooks = sequelize.define('NextBook', {
+    var NextBook = sequelize.define('NextBook', {
         // event ID
         id: {
             type: DataTypes.INTEGER,
@@ -13,8 +13,8 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    console.table(NextBooks);
-    return NextBooks
+    console.table(NextBook);
+    return NextBook
 }
 
 
