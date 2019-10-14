@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 
        
     // Create all get AJAXs call on document load
