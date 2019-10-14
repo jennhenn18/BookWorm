@@ -74,28 +74,28 @@ $(document).ready(function() {
             }).then(function(result){
                 console.log(result)
                 
-                // store values in an object
-                var currentBook = {
-                    title: result.items[0].volumeInfo.title,
-                    author: result.items[0].volumeInfo.authors[0],
-                    bio: result.items[0].searchInfo.textSnippet,
-                    thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
-                    link: result.items[0].volumeInfo.infoLink
-                }
+                // // store values in an object
+                // var currentBook = {
+                //     title: result.items[0].volumeInfo.title,
+                //     author: result.items[0].volumeInfo.authors[0],
+                //     bio: result.items[0].searchInfo.textSnippet,
+                //     thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
+                //     link: result.items[0].volumeInfo.infoLink
+                // }
 
-                // update HTML
-                $('#currentBookTitleHeader').html('Book Title:');
-                $('#currentBookTitle').html(currentBook.title);
+                // // update HTML
+                // $('#currentBookTitleHeader').html('Book Title:');
+                // $('#currentBookTitle').html(currentBook.title);
     
-                $('#currentBookAuthorHeader').html('Author:');
-                $('#currentBookAuthor').html(currentBook.author);
+                // $('#currentBookAuthorHeader').html('Author:');
+                // $('#currentBookAuthor').html(currentBook.author);
     
-                $('#currentbookBioHeader').html('Storyline:');
-                $('#currentBookBio').html(currentBook.bio);
+                // $('#currentbookBioHeader').html('Storyline:');
+                // $('#currentBookBio').html(currentBook.bio);
     
-                $('#currentBookImage').attr('src', currentBook.thumbnail);
+                // $('#currentBookImage').attr('src', currentBook.thumbnail);
     
-                $('#currentBookLink').html('Learn more').attr('href', currentBook.link).addClass('bookThumbnail');
+                // $('#currentBookLink').html('Learn more').attr('href', currentBook.link).addClass('bookThumbnail');
 
             });
     
@@ -240,6 +240,7 @@ $(document).ready(function() {
 
     // Search Google Books API
     $('#searchBook').on('click', function(){
+        console.log('success')
         var bookTitle = $('#bookTitle').val().trim();
         // AJAX call to Google Books
         $.ajax({
@@ -316,6 +317,8 @@ $(document).ready(function() {
 
             });
         });
+    }).catch(function(error){
+        console.log(error)
     });
 
 });
