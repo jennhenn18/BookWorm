@@ -317,8 +317,6 @@ $(document).ready(function() {
 
             });
         });
-    }).catch(function(error){
-        console.log(error)
     });
 
 });
