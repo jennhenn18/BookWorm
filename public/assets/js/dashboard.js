@@ -246,7 +246,7 @@ $(function() {
             method: 'GET',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw' 
         }).then(function(result){
-            // console.log(result)
+            console.log(result)
             
             // store result in object
 
