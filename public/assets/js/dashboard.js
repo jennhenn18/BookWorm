@@ -105,7 +105,8 @@ $(document).ready(function() {
              $.ajax('/api/nextbooks/', {
                 method: 'GET'
             }).then(function(NextBook){
-                var isbn = NextBook[0].currentbookid
+                console.log(NextBook)
+                // var isbn = NextBook[0].currentbookid
                 // GET request to Google Books
                 $.ajax({
                     method: 'GET',
