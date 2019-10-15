@@ -35,14 +35,14 @@ app.post('/api/currentbooks/', function(req, res) {
 
 
 // search Google Books API
-app.get('/api/searchbooks/', function(req, res){
-    console.log(req.body)
+app.get('/api/searchbooks/:id', function(req, res){
+    console.log(req.params.id)
     
-    var bookTitle = req.body.title
+    var bookTitle = req.params.id
 
         $.ajax({
             method: 'GET',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + bookTitle + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
             console.log(result)
             res.json(result)

@@ -238,14 +238,13 @@ $(document).ready(function() {
 
     // Search Google Books API
     $('#searchBook').on('click', function(){
-        var bookTitle = {
-            title: $('#bookTitle').val().trim()
-        }
+        var bookTitle = $('#bookTitle').val().trim()
+
+
         console.log(bookTitle)
         // AJAX call to search API
-        $.ajax('/api/searchbooks/', {
-            method: 'GET',
-            data: bookTitle 
+        $.ajax('/api/searchbooks/' + bookTitle, {
+            method: 'GET', 
         }).then(function(result){
             console.log('search result' + result.items)
             
