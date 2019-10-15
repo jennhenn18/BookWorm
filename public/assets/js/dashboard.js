@@ -238,12 +238,14 @@ $(document).ready(function() {
 
     // Search Google Books API
     $('#searchBook').on('click', function(){
-        console.log('success')
-        var bookTitle = $('#bookTitle').val().trim();
-        // AJAX call to Google Books
-        $.ajax({
+        var bookTitle = {
+            title: $('#bookTitle').val().trim()
+        }
+        console.log(bookTitle)
+        // AJAX call to search API
+        $.ajax('/api/searchbooks/', {
             method: 'GET',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle  + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw' 
+            data: bookTitle 
         }).then(function(result){
             console.log('search result' + result.items)
             
