@@ -36,6 +36,7 @@ app.post('/api/currentbooks/', function(req, res) {
 
 // search Google Books API
 app.get('/api/searchbooks/', function(req, res){
+    console.log(req.body)
     
     var bookTitle = req.body.title
 
