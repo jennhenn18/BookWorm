@@ -10,7 +10,16 @@ app.get('/api/currentbooks/', function(req, res){
         ],
         limit: 1
     }).then(function(dbCurrentBook){
-        res.json(dbCurrentBook);
+
+        var isbn = dbCurrentBook[0].currentbookid
+
+        $.ajax({
+            method: 'GET',
+            url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+        }).then(function(result){
+            console.log(result)
+            res.json(result)
+        });
     });
 });
 
