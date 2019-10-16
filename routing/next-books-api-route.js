@@ -10,7 +10,7 @@ app.get('/api/nextbooks/', function(req, res){
         ],
         limit: 1
     }).then(function(dbNextBook){
-        console.log(dbNextBook)
+        console.log(dbNextBook[0].currentbookid)
 
         var isbn = dbNextBook[0].currentbookid
     
@@ -31,7 +31,7 @@ app.post('/api/nextbooks/', function(req, res){
     db.NextBook.create({
         nextbookid: req.body.id
     }).then(function(dbNextBook){
-        console.log(dbNextBook)
+        console.log('next book added to table')
         res.json(dbNextBook);
     });
 });

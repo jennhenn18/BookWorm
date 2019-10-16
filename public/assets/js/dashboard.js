@@ -27,7 +27,7 @@ $(document).ready(function() {
                     var l = $('<li>');
                     
                     // add class to the member name list item
-                    l.addClass(member);
+                    l.addClass('member');
 
                     // add member name to list item
                     l.text(memberName);
@@ -42,10 +42,10 @@ $(document).ready(function() {
                     d.addClass('removeButton')
 
                     // add remove text to button
-                    d.text('Remove');
+                    d.text('x');
 
                     // append member name and button to list item
-                    $('#member').append(l,d);
+                    $('#memberList').append(l,d);
                 }
             })
 
@@ -86,12 +86,12 @@ $(document).ready(function() {
                 $('#currentBookAuthorHeader').html('Author:');
                 $('#currentBookAuthor').html(currentBook.author);
     
-                $('#currentbookBioHeader').html('Storyline:');
+                $('#currentBookBioHeader').html('Storyline:');
                 $('#currentBookBio').html(currentBook.bio);
     
                 $('#currentBookImage').attr('src', currentBook.thumbnail);
     
-                $('#currentBookLink').html('Learn more').attr('href', currentBook.link).addClass('bookThumbnail');
+                $('#currentBookLink').html('Learn more').attr('href', currentBook.link);
 
             });
     
@@ -233,7 +233,7 @@ $(document).ready(function() {
         $.ajax('/api/searchbooks/' + bookTitle, {
             method: 'GET', 
         }).then(function(result){
-            console.log(result)
+            // console.log(result)
             
             // store result in object
 
@@ -285,11 +285,13 @@ $(document).ready(function() {
 
             // If "add to next book" button is clicked run function to add information to next book card
             $('#addToNextBook').on('click', function(){
+                console.log('on click success')
                 // send bookID to next book column in the books table
                 $.ajax('/api/nextbooks/', {
                     method: 'POST',
                     data: book
                 }).then(function(dbNextBook){
+                    console.log('adding to next book a success')
                     // clear form
                     $('#bookTitle').html('');
 

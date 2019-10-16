@@ -26,7 +26,6 @@ html, body {
     min-height: 100%;
     margin-top: 7%;
     margin-left: 2%;
-    border: black solid 2px;
     overflow: auto;
 }
 
@@ -52,6 +51,12 @@ html, body {
     margin-top: 2%;
     margin-bottom: 2%;
     clear: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+#nextBookCard {
+    margin-bottom: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
 .bookThumbnail {
@@ -74,6 +79,19 @@ html, body {
     float: right;
 }
 
+#memberList {
+    padding: 0px;
+}
+
+.member {
+    display: inline-block;
+    margin-right: 3%;
+}
+
+#removeButton {
+    display: inline;
+}
+
 #meetupCard {
     margin-top: 5%;
 }
@@ -89,6 +107,15 @@ html, body {
 
 #createMeetupButton {
     float: right;
+}
+
+#currentBookImage {
+    float: left;
+    margin-right: 2%;
+}
+
+#currentBookTitle {
+    margin-bottom: 15px;
 }
 
 /* ======================= MODALS ====================== */

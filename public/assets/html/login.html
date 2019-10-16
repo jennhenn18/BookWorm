@@ -11,34 +11,47 @@
 
 <body>
 
+  <div class="bg">
+
   <div class="container">
 
     <div class="row" id="loginScreen">
       <!-- Intro text -->
       <div class="col-6" id="introText">
-          <h2>Hello!</h2>
-          <p>Welcome to the new way to book club.</p>
+          <h2>Hey, what's up hello!</h2>
+          <p>Welcome to Bookworm, the new way to book club.</p><br>
           <p>Schedule events, chat with your friends, and even vote on the next book all in one place. It's that simple.</p>
           <p>Create an account or login to get started.</p>
       </div>
       
       <!-- Login half -->
       <div class="col-6" id="loginForm">
-        <h2 class="whiteText">BookWorm</h2>
+        <div class="row" id="loginText">
+          <div class="col-12">
+        <h1 class="whiteText">Welcome back.</h1>
+        <p class="whiteText">Sign in below.<br>Don't have an account? Create one <a href="/signup">here.</a></p>
+        </div>
+        </div>
+        <div class="row" id="loginFormFields">
+            <div class="col-12">
         <form class="login">
           <div class="form-group">
+            <label for="email-input">Enter your email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email address">
           </div>
           <div class="form-group">
+              <label for="email-input">Enter your password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <button type="submit" class="formButton">Login</button>
         </form>
-        <br />
-        <p class="whiteText">Don't have an account? Click <a href="/signup">here</a> to get started.</p>
+      </div>
+      </div>  
       </div>
     </div>
   </div>
+
+</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/js/login.js"></script>

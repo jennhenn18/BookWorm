@@ -10,44 +10,50 @@
 </head>
 
 <body>
+  
+    <div class="bg">
 
   <div class="container">
     <div class="row" id="signUpScreen">
       <!-- Instructions text -->
       <div class="col-6" id="signUpText">
           <h2 class="whiteText">Hey, what's up hello!</h2>
-          <p class="whiteText">We are excited to have you!</p>
-          <p class="whiteText">to get started wit your account complete the form on the right.</p>
-          <p class="whiteText">some more dumb text</p>
+          <p>Welcome to Bookworm, the new way to book club.</p><br>
+          <p>Schedule events, chat with your friends, and even vote on the next book all in one place. It's that simple.</p>
+          <p>Create an account or login to get started.</p>
       </div>
 
       <!-- Signup form -->
       <div class="col-6" id="signUpForm">
-        <h2 class="navyText">Let's do this...</h2>
+        <h2 class="navyText" id="LoginTitle" style="display: inline-block;"><a href="/" style=" color:lightgrey;">Login</a></h2>
+        <h2 class="navyText" id="signUpTitle" style="display:inline; margin-left:25px;">Signup</h2>
         <form class="signup">
+            <div class="form-group">
+                <label for="exampleInputName1" class="navyText"></label>
+                <input type="text" class="form-control" id="name-input" placeholder="Enter your name">
+              </div>
           <div class="form-group">
-            <label for="exampleInputEmail1" class="navyText">Enter your email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <label for="exampleInputEmail1" class="navyText"></label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email Address">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1" class="navyText">Enter a password</label>
+            <label for="exampleInputPassword1" class="navyText"></label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="formButton">Create account</button>
         </form>
         <br />
-        <p class="navyText">Or log in <a href="/">here.</a></p>
       </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="/assets/js/signup.js"></script>
-
+</div>
 </body>
 
 </html>
