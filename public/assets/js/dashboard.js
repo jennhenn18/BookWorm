@@ -240,39 +240,37 @@ $(document).ready(function() {
     $('#searchBook').on('click', function(){
         var bookTitle = $('#bookTitle').val().trim()
 
-
-        console.log(bookTitle)
         // AJAX call to search API
         $.ajax('/api/searchbooks/' + bookTitle, {
             method: 'GET', 
         }).then(function(result){
-            console.log('search result' + result.items)
+            console.log(result)
             
             // store result in object
 
-            // var book = {
-            //     id: result.items[0].volumeInfo.industryIdentifiers[0].identifier,
-            //     title: result.items[0].volumeInfo.title,
-            //     author: result.items[0].volumeInfo.authors[0],
-            //     bio: result.items[0].searchInfo.textSnippet,
-            //     thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
-            //     link: result.items[0].volumeInfo.infoLink
-            // }
+            var book = {
+                id: result[0].volumeInfo.industryIdentifiers[0].identifier,
+                title: result[0].volumeInfo.title,
+                author: result[0].volumeInfo.authors[0],
+                bio: result[0].searchInfo.textSnippet,
+                thumbnail: result[0].volumeInfo.imageLinks.smallThumbnail,
+                link: result[0].volumeInfo.infoLink
+            }
 
             // // update html elements in modal
 
-            // $('#resBookTitleHeader').html('Book Title:');
-            // $('#resBookTitle').html(book.title);
+            $('#resBookTitleHeader').html('Book Title:');
+            $('#resBookTitle').html(book.title);
 
-            // $('#resBookauthorHeader').html('Author:');
-            // $('#resBookAuthor').html(book.author);
+            $('#resBookauthorHeader').html('Author:');
+            $('#resBookAuthor').html(book.author);
 
-            // $('#resBookBioHeader').html('Storyline:');
-            // $('#resBookBio').html(book.bio);
+            $('#resBookBioHeader').html('Storyline:');
+            $('#resBookBio').html(book.bio);
 
-            // $('#resBookImage').attr('src', book.thumbnail);
+            $('#resBookImage').attr('src', book.thumbnail);
 
-            // $('#resBookLink').html('Learn more').attr('href', book.link);
+            $('#resBookLink').html('Learn more').attr('href', book.link);
 
             // If "add to current book" button is clicked run function to add google book ID to the books table
             $('#addToCurrentBook').on('click', function(){

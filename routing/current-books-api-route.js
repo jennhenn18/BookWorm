@@ -1,4 +1,5 @@
 var db = require('../models');
+var axios = require('axios')
 
 module.exports = function(app) {
 
@@ -13,12 +14,14 @@ app.get('/api/currentbooks/', function(req, res){
 
         var isbn = dbCurrentBook[0].currentbookid
 
-        $.ajax({
-            method: 'GET',
+        axios({
+            method: 'get',
             url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
             console.log(result)
             res.json(result)
+        }).catch(function(error) {
+        console.log(error)
         });
     });
 });
@@ -40,12 +43,12 @@ app.get('/api/searchbooks/:id', function(req, res){
     
     var bookTitle = req.params.id
 
-        $.ajax({
-            method: 'GET',
+        axios({
+            method: 'get',
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log(result)
-            res.json(result)
+            
+            res.json(result.data.items)
         });
        
 });
