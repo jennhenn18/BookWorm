@@ -18,8 +18,7 @@ app.get('/api/currentbooks/', function(req, res){
             method: 'get',
             url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log(result)
-            res.json(result)
+            res.json(result.data)
         }).catch(function(error) {
         console.log(error)
         });
@@ -29,29 +28,28 @@ app.get('/api/currentbooks/', function(req, res){
 
 // add book to the current book table
 app.post('/api/currentbooks/', function(req, res) {
+    console.log(req.body.id)
     db.CurrentBook.create({
         currentbookid: req.body.id
     }).then(function(dbCurrentBook){
         res.json(dbCurrentBook)
-     });
+    });
 });
 
 
 // search Google Books API
 app.get('/api/searchbooks/:id', function(req, res){
-    console.log(req.params.id)
     
     var bookTitle = req.params.id
 
         axios({
             method: 'get',
-            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
+            url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&printType=books&maxResults=1&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            
             res.json(result.data.items)
         });
        
-});
+    });
 
 
 }
