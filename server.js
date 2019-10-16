@@ -6,10 +6,11 @@ var passport = require("./config/passport");
 
 // setup express app
 var PORT = process.env.PORT || 8080;
-var app = express();
-
 // add model folder for data syncing
 var db = require('./models');
+
+// create express app
+var app = express();
 
 // setup data parsing 
 app.use(express.urlencoded({ extended: true }));
