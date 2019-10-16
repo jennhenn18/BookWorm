@@ -28,7 +28,6 @@ app.get('/api/currentbooks/', function(req, res){
 
 // add book to the current book table
 app.post('/api/currentbooks/', function(req, res) {
-    console.log(req.body.id)
     db.CurrentBook.create({
         currentbookid: req.body.id
     }).then(function(dbCurrentBook){

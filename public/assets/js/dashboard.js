@@ -66,7 +66,6 @@ $(document).ready(function() {
             $.ajax('/api/currentbooks/', {
                 method: 'GET'
             }).then(function(result){
-                console.log(result)
             
                 // GET request to Google Books
                 
@@ -79,8 +78,6 @@ $(document).ready(function() {
                     thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
                     link: result.items[0].volumeInfo.infoLink
                 }
-
-                console.log(currentBook)
 
                 // update HTML
                 $('#currentBookTitleHeader').html('Book Title:');
@@ -103,41 +100,31 @@ $(document).ready(function() {
 
              $.ajax('/api/nextbooks/', {
                 method: 'GET'
-            }).then(function(NextBook){
-                console.log(NextBook)
-                // var isbn = NextBook[0].currentbookid
-                // GET request to Google Books
-                // $.ajax({
-                //     method: 'GET',
-                //     url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
-                // }).then(function(result){
-                    
-                //     // store values in an object
-                //     var NextBook = {
-                //         title: result.items.volumeInfo.title,
-                //         author: result.items.volumeInfo.authors[0],
-                //         bio: result.items.searchInfo.textSnippet,
-                //         thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
-                //         link: result.items.volumeInfo.infoLink
-                //     }
+            }).then(function(result){
+                console.log(result)
 
-                //     // update HTML
-                //     $('#NextBookTitleHeader').html('Book Title:');
-                //     $('#NextBookTitle').html(NextBook.title);
-        
-                //     $('#NextBookAuthorHeader').html('Author:');
-                //     $('#NextBookAuthor').html(NextBook.author);
-        
-                //     $('#NextbookBioHeader').html('Storyline:');
-                //     $('#NextBookBio').html(NextBook.bio);
-        
-                //     $('#NextBookImage').attr('src', NextBook.thumbnail);
-        
-                //     $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
+                    // store values in an object
+                    var NextBook = {
+                        title: result.items.volumeInfo.title,
+                        author: result.items.volumeInfo.authors[0],
+                        bio: result.items.searchInfo.textSnippet,
+                        thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
+                        link: result.items.volumeInfo.infoLink
+                    }
 
-                //     });
-
-            // });
+                    // update HTML
+                    $('#NextBookTitleHeader').html('Book Title:');
+                    $('#NextBookTitle').html(NextBook.title);
+        
+                    $('#NextBookAuthorHeader').html('Author:');
+                    $('#NextBookAuthor').html(NextBook.author);
+        
+                    $('#NextbookBioHeader').html('Storyline:');
+                    $('#NextBookBio').html(NextBook.bio);
+        
+                    $('#NextBookImage').attr('src', NextBook.thumbnail);
+        
+                    $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
         });
     });
 
@@ -297,7 +284,7 @@ $(document).ready(function() {
 
 
             // If "add to next book" button is clicked run function to add information to next book card
-            $('#addToNextBook').on('click', function(book){
+            $('#addToNextBook').on('click', function(){
                 // send bookID to next book column in the books table
                 $.ajax('/api/nextbooks/', {
                     method: 'POST',
