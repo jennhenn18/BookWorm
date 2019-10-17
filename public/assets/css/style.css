@@ -20,6 +20,16 @@ body, html {
     margin: 18% 5% 1% 5%;;
 }
 
+
+#LoginPageLink{
+    display: inline-block;
+}
+
+#signPageLink {
+    display:inline; 
+    margin-left:25px;
+}
+
 .whiteText {
     color: #FEFFFF;
 }
@@ -102,4 +112,3 @@ body, html {
     border-radius: 0px 15px 15px 0px;
     color: #17252A;
 }
-
