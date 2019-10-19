@@ -30,6 +30,14 @@ body, html {
     margin-left:25px;
 }
 
+.signup {
+    margin-top: 30px;
+}
+
+.login {
+    margin-top: 30px;
+}
+
 .whiteText {
     color: #FEFFFF;
 }

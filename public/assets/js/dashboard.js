@@ -45,7 +45,7 @@ $(document).ready(function() {
                     d.text('x');
 
                     // append member name and button to list item
-                    $('#memberList').append(l,d);
+                    $('#memberList').append(l,d, '<br>');
                 }
             })
 

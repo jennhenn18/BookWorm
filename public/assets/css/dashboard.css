@@ -5,8 +5,20 @@ html, body {
     padding: 0px auto;
 }
 
+.bg {
+    /* The image used */
+    background-image: url('../sharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg');
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #wrapper {
-    background: #FEFFFF;
     height: auto;     
     min-height: 100%;
     margin: 0px auto;
@@ -25,7 +37,7 @@ html, body {
     height: auto;     
     min-height: 100%;
     margin-top: 7%;
-    margin-left: 2%;
+    margin-left: 5%;
     overflow: auto;
 }
 
@@ -89,7 +101,7 @@ html, body {
 }
 
 #removeButton {
-    display: inline;
+    display: inline-block;
 }
 
 #meetupCard {
