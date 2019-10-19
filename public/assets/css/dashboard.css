@@ -130,6 +130,17 @@ html, body {
     margin-bottom: 15px;
 }
 
+
+#NextBookImage {
+    float: left;
+    margin-right: 2%;
+}
+
+#NextBookTitle {
+    margin-bottom: 15px;
+}
+
+
 /* ======================= MODALS ====================== */
 
 #bookTitle {

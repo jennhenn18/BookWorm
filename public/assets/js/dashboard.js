@@ -80,13 +80,10 @@ $(document).ready(function() {
                 }
 
                 // update HTML
-                $('#currentBookTitleHeader').html('Book Title:');
                 $('#currentBookTitle').html(currentBook.title);
     
-                $('#currentBookAuthorHeader').html('Author:');
                 $('#currentBookAuthor').html(currentBook.author);
-    
-                $('#currentBookBioHeader').html('Storyline:');
+
                 $('#currentBookBio').html(currentBook.bio);
     
                 $('#currentBookImage').attr('src', currentBook.thumbnail);
@@ -105,26 +102,23 @@ $(document).ready(function() {
 
                     // store values in an object
                     var NextBook = {
-                        title: result.items.volumeInfo.title,
-                        author: result.items.volumeInfo.authors[0],
-                        bio: result.items.searchInfo.textSnippet,
-                        thumbnail: result.items.volumeInfo.imageLinks.smallThumbnail,
-                        link: result.items.volumeInfo.infoLink
+                        title: result.items[0].volumeInfo.title,
+                        author: result.items[0].volumeInfo.authors[0],
+                        bio: result.items[0].searchInfo.textSnippet,
+                        thumbnail: result.items[0].volumeInfo.imageLinks.smallThumbnail,
+                        link: result.items[0].volumeInfo.infoLink
                     }
 
                     // update HTML
-                    $('#NextBookTitleHeader').html('Book Title:');
                     $('#NextBookTitle').html(NextBook.title);
-        
-                    $('#NextBookAuthorHeader').html('Author:');
+
                     $('#NextBookAuthor').html(NextBook.author);
-        
-                    $('#NextbookBioHeader').html('Storyline:');
+
                     $('#NextBookBio').html(NextBook.bio);
         
                     $('#NextBookImage').attr('src', NextBook.thumbnail);
         
-                    $('#NextBookLink').html('Learn more').attr('href', NextBook.link).addClass('bookThumbnail');
+                    $('#NextBookLink').html('Learn more').attr('href', NextBook.link);
         });
     });
 

@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         // next book
         nextbookid: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
     });
 
