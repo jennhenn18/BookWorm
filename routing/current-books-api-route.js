@@ -46,7 +46,9 @@ app.get('/api/searchbooks/:id', function(req, res){
             url: 'https://www.googleapis.com/books/v1/volumes?q=intitle:' + bookTitle + '&printType=books&maxResults=1&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
             res.json(result.data.items)
-        });
+        }).catch(function(error) {
+            console.log(error);
+        })
        
     });
 

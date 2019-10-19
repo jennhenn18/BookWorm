@@ -31,7 +31,6 @@ app.post('/api/nextbooks/', function(req, res){
     db.NextBook.create({
         nextbookid: req.body.id
     }).then(function(dbNextBook){
-        console.log('next book added to table')
         res.json(dbNextBook);
     });
 });

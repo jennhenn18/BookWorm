@@ -140,3 +140,12 @@ html, body {
     float: right;
 }
 
+#resBookImage {
+    float: left;
+    margin-right: 2%;
+}
+
+#resBookTitle {
+    margin-bottom: 15px;
+}
+
