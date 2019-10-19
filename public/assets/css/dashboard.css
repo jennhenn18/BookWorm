@@ -1,8 +1,5 @@
-html, body {
-    background: #3AAFA9;
-    height:  100%;
-    margin:  0px auto;
-    padding: 0px auto;
+body, html {
+    height: 100%;
 }
 
 .bg {
