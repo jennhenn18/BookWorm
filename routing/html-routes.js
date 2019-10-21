@@ -21,11 +21,6 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/assets/html/signup.html"));
   });
-  
-  // load dashboard
-  // app.get("/dashboard", function(req, res) {
-  //     res.sendFile(path.join(__dirname, "../public/assets/html/dashboard.html"));
-  // });
 
 
   // Here we've add our isAuthenticated middleware to this route.

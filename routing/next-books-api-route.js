@@ -11,8 +11,7 @@ app.get('/api/nextbooks/', function(req, res){
         ],
         limit: 1
     }).then(function(dbNextBook){
-        console.log(dbNextBook)
-        console.log(dbNextBook[0].nextbookid)
+
 
         var isbn = dbNextBook[0].nextbookid
     
@@ -20,7 +19,6 @@ app.get('/api/nextbooks/', function(req, res){
             method: 'get',
             url: 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn + '&printType=books&' + 'key=AIzaSyCpKN7jqCo9yAbysuJQhskHwS6J1JaAdHw'
         }).then(function(result){
-            console.log('google books returned data')
             res.json(result.data)
         }).catch(function(error) {
             console.log(error)

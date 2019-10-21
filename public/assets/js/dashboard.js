@@ -98,7 +98,6 @@ $(document).ready(function() {
              $.ajax('/api/nextbooks/', {
                 method: 'GET'
             }).then(function(result){
-                console.log(result)
 
                     // store values in an object
                     var NextBook = {
@@ -242,13 +241,10 @@ $(document).ready(function() {
 
             // // update html elements in modal
 
-            $('#resBookTitleHeader').html('Book Title:');
             $('#resBookTitle').html(book.title);
 
-            $('#resBookauthorHeader').html('Author:');
             $('#resBookAuthor').html(book.author);
 
-            $('#resBookBioHeader').html('Storyline:');
             $('#resBookBio').html(book.bio);
 
             $('#resBookImage').attr('src', book.thumbnail);
@@ -279,13 +275,12 @@ $(document).ready(function() {
 
             // If "add to next book" button is clicked run function to add information to next book card
             $('#addToNextBook').on('click', function(){
-                console.log('on click success')
+
                 // send bookID to next book column in the books table
                 $.ajax('/api/nextbooks/', {
                     method: 'POST',
                     data: book
                 }).then(function(dbNextBook){
-                    console.log('adding to next book a success')
                     // clear form
                     $('#bookTitle').html('');
 
