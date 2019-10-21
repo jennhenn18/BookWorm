@@ -88,6 +88,10 @@ body, html {
     border-radius: 40px;
 }
 
+.formButton:hover {
+    background-color:rgb(23, 160, 160);
+}
+
 
 #signUpScreen {
     background: #17252A;

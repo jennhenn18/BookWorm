@@ -33,14 +33,14 @@ body, html {
 #mainFeed {
     height: auto;     
     min-height: 100%;
-    margin-top: 7%;
     margin-left: 5%;
+    margin-top: 5%;
     overflow: auto;
 }
 
 #rightCol {
     float: right;
-    margin-top: 7%;
+    margin-top: 5%;
 }
 
 #bookHeader {
@@ -54,7 +54,15 @@ body, html {
 
 #searchBookButton {
     float: right;
+    background-color: #FEFFFF;
+    color: #17252A;
 }
+
+#searchBookButton:hover {
+    background-color: rgb(23, 160, 160);
+    color: #FEFFFF;
+}
+
 
 #currentBookCard {
     margin-top: 2%;
@@ -86,6 +94,13 @@ body, html {
 
 #addMemberButton {
     float: right;
+    background-color: #FEFFFF;
+    color: #17252A;
+}
+
+#addMemberButton:hover {
+    background-color: rgb(23, 160, 160);
+    color: #FEFFFF;
 }
 
 #memberList {
@@ -116,6 +131,13 @@ body, html {
 
 #createMeetupButton {
     float: right;
+    background-color: #FEFFFF;
+    color: #17252A;
+}
+
+#createMeetupButton:hover {
+    background-color: rgb(23, 160, 160);
+    color: #FEFFFF;
 }
 
 #currentBookImage {
